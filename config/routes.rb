@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
