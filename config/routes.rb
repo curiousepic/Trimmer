@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
 
+  # get 'sessions/create'
+  #
   get 'home/index'
+
+  root 'home#index'
+
+  get '/auth/twitter/', to: 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
