@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     auth = Authorization.find_or_create_by!(provider: auth_hash["provider"],
                                             uid: auth_hash["uid"])
     auth.update!(token: auth_hash["credentials"]["token"])
+    auth.update!(secret: auth_hash["credentials"]["secret"])
 
     unless auth.user
       auth.create_user!(name: auth_hash["info"]["name"],

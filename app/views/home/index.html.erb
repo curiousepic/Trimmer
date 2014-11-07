@@ -2,7 +2,7 @@
   <%= link_to "Log in via Twitter", "/auth/twitter" %>
 <% else %>
   <p>Logged in as <%= current_user.name %></p>
-  <%= @home %>
+  <%= @timeline %>
   <%#= HTTParty.get("https://api.twitter.com/1.1/statuses/home_timeline.json",
                    { authorization: "token #{twitter_auth.token}" }) %>
 <% end %>
