@@ -2,4 +2,5 @@
   <%= link_to "Log in via Twitter", "/auth/twitter" %>
 <% else %>
   <p>Logged in as <%= current_user.name %></p>
+  <%= @home %>
 <% end %>
