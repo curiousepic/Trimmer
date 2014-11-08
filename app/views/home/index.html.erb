@@ -1,6 +1,5 @@
 <% unless logged_in? %>
   <a href="/auth/twitter" class="button"><%= "Log in to Twitter" %></a>
 <% else %>
-  <p>Logged in as <%= current_user.name %></p>
   <%= @display_list %>
 <% end %>
