@@ -19,6 +19,5 @@ class User < ActiveRecord::Base
 
     auth.user
   end
-
 end
 

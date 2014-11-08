@@ -15,7 +15,10 @@ class HomeController < ApplicationController
           config.access_token        = twitter_auth.token
           config.access_token_secret = twitter_auth.secret
         end
-        @timeline = client.home_timeline
+        # @timeline = client.home_timeline
+        render :json => @timeline = client.home_timeline
+        @user_timeline = client.user_timeline("gem")
+                        client.user_timeline(213747670)
       end
     end
   end
