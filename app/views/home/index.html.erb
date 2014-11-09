@@ -19,6 +19,10 @@
         <%= button_to("Mute",
                       options = { :action => "mute_friend",
                                   :params => { :friend_name => u[:user_screen_name] }},
+                      html_options = {class: "button expand"}) %>
+        <%= button_to("Unfollow",
+                      options = { :action => "unfollow_friend",
+                                  :params => { :friend_name => u[:user_screen_name] }},
                       html_options = {class: "button expand"}) %></p>
         <br>
       <% end %>

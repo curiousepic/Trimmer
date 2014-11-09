@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create'
 
   post 'home/mute_friend' => 'home#mute_friend', as: :mute_friend
+  post 'home/unfollow_friend' => 'home#unfollow_friend', as: :unfollow_friend
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

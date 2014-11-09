@@ -33,6 +33,11 @@ class HomeController < ApplicationController
     redirect_to root_path
   end
 
+  def unfollow_friend
+    @client.unfollow(unfollow_friend_params)
+    redirect_to root_path
+  end
+
   private
 
   def set_client
@@ -50,6 +55,10 @@ class HomeController < ApplicationController
   end
 
   def mute_friend_params
+    params.require(:friend_name)
+  end
+
+  def unfollow_friend_params
     params.require(:friend_name)
   end
 
