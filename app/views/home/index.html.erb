@@ -1,15 +1,26 @@
 <% unless logged_in? %>
-  <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!</p>
-  <p>Log in now to begin trimming.</p>
+  <br>
+  <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
+  <br>
+  Log in now to begin trimming.</p>
   <a href="/auth/twitter" class="button expand"><%= "Log in via Twitter" %></a>
 <% else %>
   <div class ="row">
     <div class="large-6 columns">
-      <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!</p>
-      <p>Out of the last 200 tweets in your feed, here are the most prolific tweeters:</p>
+      <br>
+      <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
+      <br>
+      Out of the last 200 tweets in your feed, here are the most... <i>prolific</i> tweeters:</p>
       <% @display_list.each do |u| %>
-        <p>@<%= u[:user_screen_name] %>: <%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>% (<%= u[:tweet_count] %> tweets)</p>
-        <!--<p><%#= button_to "Mute", :action => "mute_friend(#{u[:user_screen_name]})" %></p>-->
+        <p><%= link_to("@#{u[:user_screen_name]}",
+                       "http://www.twitter.com/#{u[:user_screen_name]}/",
+                       html_options = {title: "#{u[:user_name]}"}) %>:
+        <%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>% (<%= u[:tweet_count] %> tweets)
+        <%= button_to("Mute",
+                      options = { :action => "mute_friend",
+                                  :params => { :friend_name => u[:user_screen_name] }},
+                      html_options = {class: "button expand"}) %></p>
+        <br>
       <% end %>
     </div>
   </div>

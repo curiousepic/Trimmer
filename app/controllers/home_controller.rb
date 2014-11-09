@@ -29,7 +29,8 @@ class HomeController < ApplicationController
 
 
   def mute_friend
-    @client.mute(params)
+    @client.mute(mute_friend_params)
+    redirect_to root_path
   end
 
   private
@@ -47,4 +48,9 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  def mute_friend_params
+    params.require(:friend_name)
+  end
+
 end
