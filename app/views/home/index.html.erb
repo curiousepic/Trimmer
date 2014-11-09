@@ -1,10 +1,14 @@
 <% unless logged_in? %>
+  <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!</p>
+  <p>Log in now to begin trimming.</p>
   <a href="/auth/twitter" class="button expand"><%= "Log in to Twitter" %></a>
 <% else %>
   <div class ="row">
     <div class="large-6 columns">
+      <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!</p>
+      <p>Out of the last 200 tweets in your feed, here are the most prolific tweeters:</p>
       <% @display_list.each do |u| %>
-        <p><%= u[:user_name] %>: <%= ((u[:tweet_count] / 200.0) * 100).round %>%</p>
+        <p><%= u[:user_screen_name] %>: <%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>% (<%= u[:tweet_count] %> tweets)</p>
       <% end %>
     </div>
   </div>
