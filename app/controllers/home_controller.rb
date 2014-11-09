@@ -9,7 +9,6 @@ class HomeController < ApplicationController
           config.access_token        = twitter_auth.token
           config.access_token_secret = twitter_auth.secret
         end
-
         timeline_users = []
         timeline = client.home_timeline(options = {count: 200})
         timeline.each do |t|

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
-  # validates :email, presence: true, uniqueness: true
 
   has_many :authorizations
 
@@ -11,9 +10,7 @@ class User < ActiveRecord::Base
     auth.update!(secret: auth_hash["credentials"]["secret"])
 
     unless auth.user
-      auth.create_user!(name: auth_hash["info"]["name"],
-                        # email: auth_hash["info"]["email"]
-      )
+      auth.create_user!(name: auth_hash["info"]["name"],)
       auth.save!
     end
 

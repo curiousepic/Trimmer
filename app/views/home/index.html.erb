@@ -1,6 +1,11 @@
 <% unless logged_in? %>
   <a href="/auth/twitter" class="button expand"><%= "Log in to Twitter" %></a>
 <% else %>
-<div class ="row">
-  <div class="large-6 columns"><%= @display_list %></div>
+  <div class ="row">
+    <div class="large-6 columns">
+      <% @display_list.each do |u| %>
+        <p><%= u[:user_name] %>: <%= ((u[:tweet_count] / 200.0) * 100).round %>%</p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
