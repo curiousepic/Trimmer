@@ -12,28 +12,31 @@
         <br>
         Out of the last 200 tweets in your feed, here are the most... <i>prolific</i> tweeters.
         <br>
-        Consider muting or unfollowing some of them to increase your background signal to noise ratio.
+        Consider muting or unfollowing some of them to increase your background signal:noise ratio.
         <br>
         If you reconsider, <%= link_to("here", "https://twitter.com/settings/muted_following") %> is the list of accounts you have muted.</p>
       <% @display_list.each do |u| %>
-        <div class="panel">
-          <p style="font-size:<%= 16 + u[:tweet_count] %>px"><%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>%
-            <%= link_to("@#{u[:user_screen_name]}",
-                        "http://www.twitter.com/#{u[:user_screen_name]}/",
-                        html_options = {title: "#{u[:user_name]}"}) %>
-            (<%= u[:tweet_count] %> tweets)
+        <% if u[:tweet_count] > 2 %>
+          <div class="panel">
+            <p style="font-size:<%= 16 + ((1.5 * u[:tweet_count]).round) %>px"><%= ((u[:tweet_count] / 200.0) * 100).round %>%
+              <%= link_to("@#{u[:user_screen_name]}",
+                          "http://www.twitter.com/#{u[:user_screen_name]}/",
+                          html_options = {title: "#{u[:user_name]}"}) %>
+              <!--<span style="font-size:16px">(<%#= u[:tweet_count] %> tweets)</span>-->
+            </p>
 
-        <ul class="button-group">
-          <li><%= button_to("Mute",
-                            options = { :action => "mute_friend",
-                                        :params => { :friend_name => u[:user_screen_name] }},
-                            html_options = {class: "button"}) %></li>
-          <li><%= button_to("Unfollow",
-                            options = { :action => "unfollow_friend",
-                                        :params => { :friend_name => u[:user_screen_name] }},
-                            html_options = {class: "button"}) %></p></li>
-        </ul>
-        </div>
+            <ul class="button-group">
+              <li><%= button_to("Mute",
+                                options = { :action => "mute_friend",
+                                            :params => { :friend_name => u[:user_screen_name] }},
+                                html_options = {class: "button"}) %> </li>
+              <li><%= button_to("Unfollow",
+                                options = { :action => "unfollow_friend",
+                                            :params => { :friend_name => u[:user_screen_name] }},
+                                html_options = {class: "button"}) %></li>
+            </ul>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
