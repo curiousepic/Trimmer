@@ -1,32 +1,38 @@
 <% unless logged_in? %>
   <br>
   <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
-  <br>
-  Log in now to begin trimming.</p>
+    <br>
+    Log in now to begin trimming.</p>
   <a href="/auth/twitter" class="button expand"><%= "Log in via Twitter" %></a>
 <% else %>
   <div class ="row">
-    <div class="large-6 columns">
+    <div class="large-12 columns">
       <br>
       <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
-      <br>
-      Out of the last 200 tweets in your feed, here are the most... <i>prolific</i> tweeters.
-      <br>
-      Consider muting or unfollowing some of them to increase your background signal to noise ratio.
-      <br>
-      If you reconsider, <%= link_to("here", "https://twitter.com/settings/muted_following") %> is the list of accounts you have muted.</p>
+        <br>
+        Out of the last 200 tweets in your feed, here are the most... <i>prolific</i> tweeters.
+        <br>
+        Consider muting or unfollowing some of them to increase your background signal to noise ratio.
+        <br>
+        If you reconsider, <%= link_to("here", "https://twitter.com/settings/muted_following") %> is the list of accounts you have muted.</p>
       <% @display_list.each do |u| %>
-        <p><%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>% <%= link_to("@#{u[:user_screen_name]}",
-                       "http://www.twitter.com/#{u[:user_screen_name]}/",
-                       html_options = {title: "#{u[:user_name]}"}) %> (<%= u[:tweet_count] %> tweets)
-        <%= button_to("Mute",
-                      options = { :action => "mute_friend",
-                                  :params => { :friend_name => u[:user_screen_name] }},
-                      html_options = {class: "button expand"}) %>
-        <%= button_to("Unfollow",
-                      options = { :action => "unfollow_friend",
-                                  :params => { :friend_name => u[:user_screen_name] }},
-                      html_options = {class: "button expand"}) %></p>
+        <div class="panel">
+          <p><%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>%
+            <%= link_to("@#{u[:user_screen_name]}",
+                        "http://www.twitter.com/#{u[:user_screen_name]}/",
+                        html_options = {title: "#{u[:user_name]}"}) %>
+            (<%= u[:tweet_count] %> tweets)
+        </div>
+        <ul class="button-group">
+          <li><%= button_to("Mute",
+                            options = { :action => "mute_friend",
+                                        :params => { :friend_name => u[:user_screen_name] }},
+                            html_options = {class: "button"}) %></li>
+          <li><%= button_to("Unfollow",
+                            options = { :action => "unfollow_friend",
+                                        :params => { :friend_name => u[:user_screen_name] }},
+                            html_options = {class: "button"}) %></p></li>
+        </ul>
         <br>
       <% end %>
     </div>
