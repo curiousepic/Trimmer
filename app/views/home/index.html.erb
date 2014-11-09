@@ -17,12 +17,12 @@
         If you reconsider, <%= link_to("here", "https://twitter.com/settings/muted_following") %> is the list of accounts you have muted.</p>
       <% @display_list.each do |u| %>
         <div class="panel">
-          <p><%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>%
+          <p style="font-size:<%= 16 + u[:tweet_count] %>px"><%= '%.1f'% ((u[:tweet_count] / 200.0) * 100) %>%
             <%= link_to("@#{u[:user_screen_name]}",
                         "http://www.twitter.com/#{u[:user_screen_name]}/",
                         html_options = {title: "#{u[:user_name]}"}) %>
             (<%= u[:tweet_count] %> tweets)
-        </div>
+
         <ul class="button-group">
           <li><%= button_to("Mute",
                             options = { :action => "mute_friend",
@@ -33,7 +33,7 @@
                                         :params => { :friend_name => u[:user_screen_name] }},
                             html_options = {class: "button"}) %></p></li>
         </ul>
-        <br>
+        </div>
       <% end %>
     </div>
   </div>

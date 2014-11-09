@@ -952,8 +952,8 @@ $include-html-global-classes: $include-html-classes;
 
 // We use these to control the background and border styles
 // $panel-bg: scale-color($white, $lightness: -5%);
-// $panel-border-style: solid;
-// $panel-border-size: 1px;
+$panel-border-style: dashed;
+$panel-border-size: 4px;
 
 // We use this % to control how much we darken things on hover
 // $panel-function-factor: -11%;
