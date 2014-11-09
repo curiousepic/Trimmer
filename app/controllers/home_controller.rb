@@ -27,7 +27,6 @@ class HomeController < ApplicationController
     end
   end
 
-
   def mute_friend
     @client.mute(mute_friend_params)
     redirect_to root_path
