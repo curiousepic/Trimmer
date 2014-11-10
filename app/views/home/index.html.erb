@@ -23,31 +23,34 @@
         <% if u[:tweet_count] > 3 %>
           <% percent = ((u[:tweet_count] / 200.0) * 100).round %>
           <div class ="row">
-          <div class="small-<%= 3 + ((percent/1.8).round) %> columns">
-            <div class="panel">
-              <p style="font-size:<%= 16 + ((1.8 * u[:tweet_count]).round) %>px"><%= percent %>%
-                <%= link_to("@#{u[:user_screen_name]}",
-                            "http://www.twitter.com/#{u[:user_screen_name]}/",
-                            html_options = {title: "#{u[:user_name]}"}) %>
-                <!--<span style="font-size:16px">(<%#= u[:tweet_count] %> tweets)</span>-->
-              </p>
+            <div class="small-<%= 3 + ((percent/1.8).round) %> columns">
+              <div class="panel">
+                <p style="font-size:<%= 16 + ((1.7 * u[:tweet_count]).round) %>px"><b><%= percent %>%</b>
+                  <%= link_to("@#{u[:user_screen_name]}",
+                              "http://www.twitter.com/#{u[:user_screen_name]}/",
+                              html_options = {title: "#{u[:user_name]}"}) %>
+                </p>
+                <div class="button-bar">
+                  <ul class="button-group">
+                    <li><%= button_to("Mute",
+                                      options = { :action => "mute_friend",
+                                                  :params => { :friend_name => u[:user_screen_name] }},
+                                      html_options = {class: "small button"}) %> </li>
+                  </ul>
+                  <ul class="button-group">
 
-              <ul class="button-group">
-                <li><%= button_to("Mute",
-                                  options = { :action => "mute_friend",
-                                              :params => { :friend_name => u[:user_screen_name] }},
-                                  html_options = {class: "button"}) %> </li>
-                <li><%= button_to("Unfollow",
-                                  options = { :action => "unfollow_friend",
-                                              :params => { :friend_name => u[:user_screen_name] }},
-                                  html_options = {class: "button"}) %></li>
-              </ul>
+                    <li><%= button_to("Unfollow",
+                                      options = { :action => "unfollow_friend",
+                                                  :params => { :friend_name => u[:user_screen_name] }},
+                                      html_options = {class: "small button"}) %></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-    <% end %>
+        <% end %>
 
-    <% end %>
+      <% end %>
     </div>
   </div>
 <% end %>
