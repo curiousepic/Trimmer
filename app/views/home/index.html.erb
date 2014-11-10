@@ -18,7 +18,7 @@
         <br>
         Consider muting or unfollowing some of them to increase your background signal:noise ratio.
         <br>
-        If you reconsider, <%= link_to("here", "https://twitter.com/settings/muted_following") %> is the list of accounts you have muted.</p>
+        If you reconsider, <%= link_to('here', 'https://twitter.com/settings/muted_following') %> is the list of accounts you have muted.</p>
       <% @display_list.each do |u| %>
         <% if u[:tweet_count] > 3 %>
           <% percent = ((u[:tweet_count] / 200.0) * 100).round %>
@@ -32,24 +32,23 @@
                 </p>
                 <div class="button-bar">
                   <ul class="button-group">
-                    <li><%= button_to("Mute",
-                                      options = { :action => "mute_friend",
+                    <li><%= button_to('Mute',
+                                      options = { :action => 'mute_friend',
                                                   :params => { :friend_name => u[:user_screen_name] }},
-                                      html_options = {class: "small button"}) %> </li>
+                                      html_options = {class: 'small button'}) %> </li>
                   </ul>
                   <ul class="button-group">
 
-                    <li><%= button_to("Unfollow",
-                                      options = { :action => "unfollow_friend",
+                    <li><%= button_to('Unfollow',
+                                      options = { :action => 'unfollow_friend',
                                                   :params => { :friend_name => u[:user_screen_name] }},
-                                      html_options = {class: "small button"}) %></li>
+                                      html_options = {class: 'small button'}) %></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         <% end %>
-
       <% end %>
     </div>
   </div>
