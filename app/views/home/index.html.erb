@@ -1,14 +1,4 @@
-<% unless logged_in? %>
-  <div class ="row">
-    <div class="large-11 large-centered columns">
-      <br>
-      <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
-        <br>
-        Log in now to begin trimming.</p>
-      <a href="/auth/twitter" class="button"><%= "Log in via Twitter" %></a>
-    </div>
-  </div>
-<% else %>
+<% if logged_in? %>
   <div class ="row">
     <div class="large-11 large-centered columns">
       <br>
@@ -50,6 +40,16 @@
           </div>
         <% end %>
       <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class ="row">
+    <div class="large-11 large-centered columns">
+      <br>
+      <p>Keeping your Twitter feed well-trimmed is an essential part of a balanced Information Diet!
+        <br>
+        Log in now to begin trimming.</p>
+      <a href="/auth/twitter" class="button"><%= 'Log in via Twitter' %></a>
     </div>
   </div>
 <% end %>

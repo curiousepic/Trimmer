@@ -17,15 +17,19 @@ module HomeHelper
   def user_list(timeline)
     user_list = []
     timeline.each do |t|
-      user_index = user_list.find_index { |h| h[:user_name] == t[:user_name] }
-      if user_index.nil?
-        user_list << { user_name: t[:user_name],
-                       user_screen_name: t[:user_screen_name],
-                       tweet_count: 1 }
-      else
-        user_list[user_index][:tweet_count] += 1
-      end
+      build_and_count_user_list(t, user_list)
     end
     user_list
+  end
+
+  def build_and_count_user_list(t,l)
+    user_index = l.find_index { |h| h[:user_name] == t[:user_name] }
+    if user_index.nil?
+      l << { user_name: t[:user_name],
+                     user_screen_name: t[:user_screen_name],
+                     tweet_count: 1 }
+    else
+      l[user_index][:tweet_count] += 1
+    end
   end
 end

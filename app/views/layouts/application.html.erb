@@ -19,16 +19,16 @@
     <li class="name">
       <h1><a href="#">Trimmer</a></h1>
     </li>
+  </ul>
 
   <section class="top-bar-section">
     <!-- Right Nav Section -->
-    <% if @current_user %>
     <ul class="right">
-      <li class="active"><a href="#"><%= @current_user.name %></a></li>
+      <% if @current_user %>
+        <li class="active"><a href="#"><%= @current_user.name %></a></li>
     </ul>
     <% end %>
   </section>
-  </ul>
 </nav>
 <%= yield %>
 <%= javascript_include_tag "application" %>

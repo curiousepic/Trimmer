@@ -310,8 +310,8 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
     </div>
     <div class="information">
       <div class="infobox">
-        16 files inspected,
-        45 offenses detected
+        15 files inspected,
+        47 offenses detected
       </div>
     </div>
     <div id="offenses">
@@ -358,7 +358,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
       
       
       <div class="offense-box">
-        <div class="box-title"><h3>app/controllers/sessions_controller.rb - 1 offense</h3></div>
+        <div class="box-title"><h3>app/controllers/sessions_controller.rb - 2 offenses</h3></div>
         <div class="offense-reports">
           
           <div class="report">
@@ -369,6 +369,17 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
             </div>
             
             <pre><code><span class="highlight convention">class</span> SessionsController < ApplicationController</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #4</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Surrounding space missing for operator '='.</span>
+            </div>
+            
+            <pre><code>    self.current_user<span class="highlight convention">=</span> @user</code></pre>
             
           </div>
           
@@ -398,7 +409,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
       
       
       <div class="offense-box">
-        <div class="box-title"><h3>app/helpers/home_helper.rb - 3 offenses</h3></div>
+        <div class="box-title"><h3>app/helpers/home_helper.rb - 5 offenses</h3></div>
         <div class="offense-reports">
           
           <div class="report">
@@ -425,32 +436,34 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #17</span> –
+              <span class="location">Line #25</span> –
               <span class="severity convention">convention:</span>
-              <span class="message">Method has too many lines. [11/10]</span>
+              <span class="message">Space missing after comma.</span>
             </div>
             
-            <pre><code>  <span class="highlight convention">def</span> user_list(timeline)</code></pre>
+            <pre><code>  def build_and_count_user_list(t<span class="highlight convention">,</span>l)</code></pre>
             
           </div>
           
-        </div>
-      </div>
-      
-      
-      
-      <div class="offense-box">
-        <div class="box-title"><h3>app/helpers/sessions_helper.rb - 1 offense</h3></div>
-        <div class="offense-reports">
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #29</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Align the elements of a hash literal if they span more than one line.</span>
+            </div>
+            
+            <pre><code>                     <span class="highlight convention">user_screen_name: t[:user_screen_name]</span>,</code></pre>
+            
+          </div>
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #1</span> –
+              <span class="location">Line #30</span> –
               <span class="severity convention">convention:</span>
-              <span class="message">Missing top-level module documentation comment.</span>
+              <span class="message">Align the elements of a hash literal if they span more than one line.</span>
             </div>
             
-            <pre><code><span class="highlight convention">module</span> SessionsHelper</code></pre>
+            <pre><code>                     <span class="highlight convention">tweet_count: 1</span> }</code></pre>
             
           </div>
           
