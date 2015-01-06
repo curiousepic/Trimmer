@@ -10,4 +10,5 @@ We had to learn the Twitter API (admittedly the Twitter gem helped a lot) as wel
 
 I had a lot of fun with this project, thinking of ways to visually present the list to the user.  I realized we could fairly easily scale a visual element proportionally to the data, though since we were using Foundation instead of a fancier JS frontend, it ended up being a bit kludgey with too many variables hard-coded.  Still one of my favorite projects.
 
+
 ![Alt text](https://cloud.githubusercontent.com/assets/5394429/5635271/b97c746a-95b5-11e4-813d-25735e7b6573.png)
